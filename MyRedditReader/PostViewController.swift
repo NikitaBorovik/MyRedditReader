@@ -29,13 +29,13 @@ class PostViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        Task{await displayDataFromPost()}
+        Task{await displayDataFromPost(subreddit: "ios", limit: 1, after: "")}
         // Do any additional setup after loading the view.
     }
 
-    private func displayDataFromPost() async{
+    private func displayDataFromPost(subreddit: String, limit: Int, after: String) async{
         let dataProcessor = APIDataProcessor()
-        let data = await dataProcessor.getDataFromUrl(subreddit: "dota", limit: 1, after:"" )
+        let data = await dataProcessor.getDataFromUrl(subreddit: subreddit, limit: limit, after:after )
         await MainActor.run{
             switch data{
             case .success(let post):
