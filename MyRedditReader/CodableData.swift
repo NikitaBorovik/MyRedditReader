@@ -29,7 +29,7 @@ struct ApiPostData: Codable{
     let preview: Preview?
     
     enum CodingKeys: String, CodingKey{
-        case username = "author_fullname"
+        case username = "author"
         case numComments = "num_comments"
         case title
         case domain

@@ -52,7 +52,8 @@ class PostViewController: UIViewController {
                 timeLable.text = post.timePassed
                 image.sd_setImage(with: post.imageUrl,placeholderImage: UIImage(systemName: "face.smiling"))
                 
-            case .failure(_):
+            case .failure(let err):
+                print(err)
                 return
             }
         }
