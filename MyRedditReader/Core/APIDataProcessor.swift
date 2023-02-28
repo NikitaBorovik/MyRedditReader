@@ -2,7 +2,7 @@
 //  APIDataProcessor.swift
 //  MyRedditReader
 //
-//  Created by Никита Боровик on 23.02.2023.
+//  Created by Нікіта Боровік on 23.02.2023.
 //
 
 import Foundation

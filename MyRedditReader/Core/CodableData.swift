@@ -2,7 +2,7 @@
 //  CodableData.swift
 //  MyRedditReader
 //
-//  Created by Никита Боровик on 24.02.2023.
+//  Created by Нікіта Боровік on 24.02.2023.
 //
 
 import Foundation

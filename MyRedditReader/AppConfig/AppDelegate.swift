@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  MyRedditReader
 //
-//  Created by Никита Боровик on 22.02.2023.
+//  Created by Нікіта Боровік on 22.02.2023.
 //
 
 import UIKit
