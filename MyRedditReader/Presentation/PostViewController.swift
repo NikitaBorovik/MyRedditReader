@@ -10,54 +10,51 @@ import SDWebImage
 
 class PostViewController: UIViewController {
 
-    @IBOutlet weak var usernameLable: UILabel!
+    @IBOutlet private weak var usernameLable: UILabel!
     
-    @IBOutlet weak var timeLable: UILabel!
+    @IBOutlet private weak var timeLable: UILabel!
     
-    @IBOutlet weak var domainLable: UILabel!
+    @IBOutlet private weak var domainLable: UILabel!
     
-    @IBOutlet weak var titleLable: UILabel!
+    @IBOutlet private weak var titleLable: UILabel!
     
     @IBOutlet private weak var image: UIImageView!
     
-    @IBOutlet weak var savedButton: UIButton!
+    @IBOutlet private weak var savedButton: UIButton!
     
-    @IBOutlet weak var commentsButton: UIButton!
+    @IBOutlet private weak var commentsButton: UIButton!
     
-    @IBOutlet weak var upvoteLable: UILabel!
+    @IBOutlet private weak var upvoteLable: UILabel!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        Task{await displayDataFromPost(subreddit: "ios", limit: 1, after: "")}
+        NotificationCenter.default.addObserver(self, selector: #selector(displayDataFromPost), name: APIDataProcessor.postsLoadedNotificationName, object: nil)
+        //displayDataFromPost(postR: APIDataProcessor.posts.first!)
         // Do any additional setup after loading the view.
     }
 
-    private func displayDataFromPost(subreddit: String, limit: Int, after: String) async{
-        let dataProcessor = APIDataProcessor()
-        let data = await dataProcessor.getDataFromUrl(subreddit: subreddit, limit: limit, after:after )
-        await MainActor.run{
-            switch data{
-            case .success(let post):
-                usernameLable.text = post.username
-                usernameLable.sizeToFit()
-                domainLable.text = post.domain
-                titleLable.text = post.title
-                titleLable.sizeToFit()
-                if post.saved {
-                    savedButton.setImage(UIImage(systemName: "bookmark.fill"), for: .normal)
-                }
-                upvoteLable.text = String(post.rating)
-                commentsButton.setTitle(String(post.numComments), for: .normal)
-                timeLable.text = post.timePassed
-                image.sd_setImage(with: post.imageUrl,placeholderImage: UIImage(systemName: "face.smiling"))
-                
-            case .failure(let err):
-                print(err)
-                return
+    @objc
+    private func displayDataFromPost(){
+        DispatchQueue.main.async {
+            [self] in
+            let post = APIDataProcessor.posts[3]
+            self.usernameLable.text = post.username
+            self.usernameLable.sizeToFit()
+            self.domainLable.text = post.domain
+            self.titleLable.text = post.title
+            self.titleLable.sizeToFit()
+            if post.saved {
+                self.savedButton.setImage(UIImage(systemName: "bookmark.fill"), for: .normal)
             }
+            self.upvoteLable.text = String(post.rating)
+            self.commentsButton.setTitle(String(post.numComments), for: .normal)
+            self.timeLable.text = post.timePassed
+            self.image.sd_setImage(with: post.imageUrl,placeholderImage: UIImage(systemName: "face.smiling"))
         }
-    }
-
+        
+                
+        }
 }
+
 

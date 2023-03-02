@@ -10,27 +10,38 @@ import Foundation
 
 class APIDataProcessor{
     
+    public static let postsLoadedNotificationName = Notification.Name("ua.edu.ukma.postsLoadedNotification")
+    public static var posts:[Post] = []
+    
     enum ApiDataError:Error{
         case invalidURL
         case invalidData
     }
     
-    func getDataFromUrl(subreddit:String, limit:Int, after:String) async -> Result<Post,Error> {
+    func getDataFromUrl(subreddit:String, limit:Int, after:String) async -> () {
         guard let url = URL(string: "https://www.reddit.com/r/\(subreddit)/top.json?limit=\(limit)")
         else{
-            return .failure(ApiDataError.invalidURL)
+            print("Invalid URL!")
+            return
         }
+        print("Here")
         do {
             let (dataReceived, _) = try await URLSession.shared.data(from: url)
             
             let decodedData = try JSONDecoder().decode(OuterPostData.self, from: dataReceived)
-            guard let apiData = decodedData.data.children.first?.data else{
-                return .failure(ApiDataError.invalidData)
+            for child in decodedData.data.children{
+                let apiData = child.data
+                let post = Post(data: apiData)
+                APIDataProcessor.posts.append(post)
             }
-            let post = Post(data: apiData)
-            return .success(post)
+ //           decodedData.data.children[1].data //else{
+//                return .failure(ApiDataError.invalidData)
+//            }
+//            let post = Post(data: apiData)
+            NotificationCenter.default.post(Notification(name: APIDataProcessor.postsLoadedNotificationName))
         }catch{
-            return .failure(error)
+            print("Invalid data!")
+            return
         }
     }
 }

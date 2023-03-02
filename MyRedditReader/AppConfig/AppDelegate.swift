@@ -13,6 +13,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        let dataProcessor = APIDataProcessor()
+        Task{await dataProcessor.getDataFromUrl(subreddit: "ios", limit: 5, after: "")}
+        print("Data received")
         // Override point for customization after application launch.
         return true
     }
