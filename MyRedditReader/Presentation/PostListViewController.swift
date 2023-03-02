@@ -20,6 +20,7 @@ class PostListViewController: UIViewController{
     }
     
     private var postList: [Post] = []
+    private var lastSelectedPost: Post?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,6 +40,16 @@ class PostListViewController: UIViewController{
             self.postList += APIDataProcessor.posts
             print(self.postList.count)
             self.tableView.reloadData()
+        }
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        switch segue.identifier{
+        case Const.goToDetailsSeagueId:
+            let nextVc = segue.destination as! PostDetailsViewController
+            DispatchQueue.main.async {
+                nextVc.config(with: self.lastSelectedPost)
+            }
+        default: break
         }
     }
 }
@@ -75,9 +86,10 @@ extension PostListViewController: UITableViewDelegate{
             Task{await APIDataProcessor.getDataFromUrl(subreddit: "cats", limit: Const.postsCountInOneTime, after: postList.last?.after ?? "")}
         }
     }
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//       // self.performSegue(withIdentifier: Const.goToDetailsSeagueId, sender: nil)
-//    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.lastSelectedPost = self.postList[indexPath.row]
+        self.performSegue(withIdentifier: Const.goToDetailsSeagueId, sender: nil)
+    }
 }
 
 

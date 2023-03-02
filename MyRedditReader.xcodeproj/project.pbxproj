@@ -20,6 +20,7 @@
 		01171D3C29A65A85001BBE2F /* MyRedditReaderUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01171D3B29A65A85001BBE2F /* MyRedditReaderUITestsLaunchTests.swift */; };
 		014BD7B929B0FC2400F99C50 /* PostView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 014BD7B829B0FC2400F99C50 /* PostView.xib */; };
 		014BD7BB29B0FC9D00F99C50 /* PostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014BD7BA29B0FC9D00F99C50 /* PostView.swift */; };
+		0159F1CA29B1591400B4CABF /* PostDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0159F1C929B1591400B4CABF /* PostDetailsViewController.swift */; };
 		0169469929AE439A001A3A5C /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0169469829AE439A001A3A5C /* String+Extensions.swift */; };
 		0169469B29AE43B7001A3A5C /* Double+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0169469A29AE43B7001A3A5C /* Double+Extensions.swift */; };
 		0183E70A29A8FDC500238285 /* CodableData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0183E70929A8FDC500238285 /* CodableData.swift */; };
@@ -65,6 +66,7 @@
 		01171D3B29A65A85001BBE2F /* MyRedditReaderUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRedditReaderUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		014BD7B829B0FC2400F99C50 /* PostView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostView.xib; sourceTree = "<group>"; };
 		014BD7BA29B0FC9D00F99C50 /* PostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostView.swift; sourceTree = "<group>"; };
+		0159F1C929B1591400B4CABF /* PostDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailsViewController.swift; sourceTree = "<group>"; };
 		0169469829AE439A001A3A5C /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		0169469A29AE43B7001A3A5C /* Double+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extensions.swift"; sourceTree = "<group>"; };
 		0183E70929A8FDC500238285 /* CodableData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableData.swift; sourceTree = "<group>"; };
@@ -187,6 +189,7 @@
 				01171D2329A65A85001BBE2F /* LaunchScreen.storyboard */,
 				010DCF8029B14F6A00C9E0F4 /* PostListViewController.swift */,
 				010DCF8229B1502400C9E0F4 /* CustomPostCell.swift */,
+				0159F1C929B1591400B4CABF /* PostDetailsViewController.swift */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -483,6 +486,7 @@
 				010DCF8129B14F6A00C9E0F4 /* PostListViewController.swift in Sources */,
 				010DCF8329B1502400C9E0F4 /* CustomPostCell.swift in Sources */,
 				01171D1B29A65A83001BBE2F /* SceneDelegate.swift in Sources */,
+				0159F1CA29B1591400B4CABF /* PostDetailsViewController.swift in Sources */,
 				014BD7BB29B0FC9D00F99C50 /* PostView.swift in Sources */,
 				01D0ED6829A7B4F5007AE2D6 /* Post.swift in Sources */,
 			);

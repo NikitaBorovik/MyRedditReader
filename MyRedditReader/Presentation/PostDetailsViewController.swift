@@ -1,19 +1,22 @@
 //
-//  CustomPostCell.swift
+//  PostDetailsViewController.swift
 //  MyRedditReader
 //
-//  Created by Никита Боровик on 02.03.2023.
+//  Created by Никита Боровик on 03.03.2023.
 //
 
 import Foundation
 import UIKit
-import SDWebImage
 
-final class CustomPostCell: UITableViewCell{
+final class PostDetailsViewController: UIViewController{
     
     @IBOutlet private weak var postView: PostView!
     
-    func config(with data: Post){
+    func config(with post: Post?){
+        guard let data = post else {
+            return
+        }
+        
         postView.usernameLable.text = data.username
         postView.timeLable.text = data.timePassed
         postView.domainLable.text = data.domain
@@ -28,4 +31,3 @@ final class CustomPostCell: UITableViewCell{
         postView.image.sd_setImage(with: data.imageUrl,placeholderImage: UIImage(systemName: "face.smiling"))
     }
 }
-
