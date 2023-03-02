@@ -17,8 +17,9 @@ struct Post{
      var rating:Int
      var imageUrl: URL?
      var saved: Bool
+     var after: String
     
-    init(data:ApiPostData){
+    init(data:ApiPostData, dataToGetAfter: InnerPostData){
         self.username = data.username
         self.numComments = data.numComments
         self.title = data.title
@@ -27,7 +28,8 @@ struct Post{
         self.timePassed = data.created.makeTimeString
         self.imageUrl = data.preview?.images.first?.source.url.formattedURL
         self.saved = Bool.random()
-       
+        self.after = dataToGetAfter.after
+        
     }
 }
 

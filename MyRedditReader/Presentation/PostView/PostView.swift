@@ -9,25 +9,25 @@ import UIKit
 
 class PostView: UIView{
     
-    @IBOutlet private weak var contentView: UIView!
+    @IBOutlet weak var contentView: UIView!
     
     
-    @IBOutlet private weak var usernameLable: UILabel!
+    @IBOutlet weak var usernameLable: UILabel!
     
-    @IBOutlet private weak var timeLable: UILabel!
+    @IBOutlet weak var timeLable: UILabel!
     
     
-    @IBOutlet private weak var domainLable: UILabel!
+    @IBOutlet weak var domainLable: UILabel!
     
-    @IBOutlet private weak var titleLable: UILabel!
+    @IBOutlet weak var titleLable: UILabel!
     
-    @IBOutlet private weak var image: UIImageView!
+    @IBOutlet weak var image: UIImageView!
     
-    @IBOutlet private weak var savedButton: UIButton!
+    @IBOutlet weak var savedButton: UIButton!
     
-    @IBOutlet private weak var ratingLable: UILabel!
+    @IBOutlet weak var ratingLable: UILabel!
     
-    @IBOutlet private weak var commentsButton: UIButton!
+    @IBOutlet weak var commentsButton: UIButton!
     
     let kCONTENT_XIB_NAME = "PostView"
     

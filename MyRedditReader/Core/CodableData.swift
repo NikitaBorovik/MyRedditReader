@@ -11,6 +11,7 @@ struct OuterPostData: Codable{
 }
 
 struct InnerPostData: Codable{
+    let after: String
     let children: [Child]
 }
 
