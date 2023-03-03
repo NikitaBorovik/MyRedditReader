@@ -13,7 +13,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        Task{await APIDataProcessor.getDataFromUrl(subreddit: "cats", limit: 20, after: "")}
+        Task{await APIDataProcessor.getDataFromUrl(subreddit: APIDataProcessor.subredditName, limit: 20, after: "")}
         print("Data received")
         
         // Override point for customization after application launch.

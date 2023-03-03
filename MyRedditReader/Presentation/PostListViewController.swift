@@ -10,8 +10,9 @@ import SDWebImage
 
 class PostListViewController: UIViewController{
     
+    @IBOutlet private weak var subredditNameLabel: UILabel!
     
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet private weak var tableView: UITableView!
     
     struct Const {
         static let cellReuseId = "custom_post_cell"
@@ -24,6 +25,9 @@ class PostListViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        DispatchQueue.main.async {
+            self.subredditNameLabel.text = "/r/\(APIDataProcessor.subredditName)"
+        }
         self.tableView.delegate = self
         NotificationCenter.default.addObserver(self, selector: #selector(recalculateData), name: APIDataProcessor.postsLoadedNotificationName, object: nil)
     }
@@ -82,7 +86,6 @@ extension PostListViewController: UITableViewDelegate{
         let contentOffsY = scrollView.contentOffset.y
         let dist = scrollView.contentSize.height - contentOffsY
         if dist < heigth*2 {
-            print(postList.last?.after ?? "")
             Task{await APIDataProcessor.getDataFromUrl(subreddit: "cats", limit: Const.postsCountInOneTime, after: postList.last?.after ?? "")}
         }
     }
