@@ -42,7 +42,6 @@ class PostListViewController: UIViewController{
         DispatchQueue.main.async {
             [self] in
             self.postList += APIDataProcessor.posts
-            print(self.postList.count)
             self.tableView.reloadData()
         }
     }
@@ -68,7 +67,7 @@ extension PostListViewController: UITableViewDataSource{
         let cell = tableView.dequeueReusableCell(
             withIdentifier: Const.cellReuseId,
             for: indexPath
-        ) as! CustomPostCell
+        ) as! PostTableViewCell
         
         let particularPost = self.postList[indexPath.row]
         cell.config(with: particularPost)

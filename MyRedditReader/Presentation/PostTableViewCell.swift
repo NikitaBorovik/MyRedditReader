@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 import SDWebImage
 
-final class CustomPostCell: UITableViewCell{
+final class PostTableViewCell: UITableViewCell{
     
     @IBOutlet private weak var postView: PostView!
     

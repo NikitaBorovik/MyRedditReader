@@ -8,7 +8,7 @@
 import UIKit
 import SDWebImage
 
-class PostViewController: UIViewController {
+class PostViewController: UIViewController { //this class is not used in hw3 but left in program in case we need it in hw4 (otherwise will be deleted in hv4)
 
     @IBOutlet private weak var usernameLable: UILabel!
     
@@ -30,7 +30,6 @@ class PostViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(displayDataFromPost), name: APIDataProcessor.postsLoadedNotificationName, object: nil)
-        //displayDataFromPost(postR: APIDataProcessor.posts.first!)
         // Do any additional setup after loading the view.
     }
 
