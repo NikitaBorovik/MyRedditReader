@@ -24,6 +24,8 @@
 		0169469929AE439A001A3A5C /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0169469829AE439A001A3A5C /* String+Extensions.swift */; };
 		0169469B29AE43B7001A3A5C /* Double+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0169469A29AE43B7001A3A5C /* Double+Extensions.swift */; };
 		0183E70A29A8FDC500238285 /* CodableData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0183E70929A8FDC500238285 /* CodableData.swift */; };
+		01C82E7629BA222C00C5B88E /* PostsSaverAndLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C82E7529BA222C00C5B88E /* PostsSaverAndLoader.swift */; };
+		01C82E7829BA226D00C5B88E /* PostProcessorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C82E7729BA226D00C5B88E /* PostProcessorDelegate.swift */; };
 		01D0ED6629A79974007AE2D6 /* APIDataProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D0ED6529A79974007AE2D6 /* APIDataProcessor.swift */; };
 		01D0ED6829A7B4F5007AE2D6 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D0ED6729A7B4F5007AE2D6 /* Post.swift */; };
 		3912D842E1E138657E36C934 /* Pods_MyRedditReader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4009DDE5A68E615EB12DBFF /* Pods_MyRedditReader.framework */; };
@@ -70,6 +72,8 @@
 		0169469829AE439A001A3A5C /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		0169469A29AE43B7001A3A5C /* Double+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extensions.swift"; sourceTree = "<group>"; };
 		0183E70929A8FDC500238285 /* CodableData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableData.swift; sourceTree = "<group>"; };
+		01C82E7529BA222C00C5B88E /* PostsSaverAndLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsSaverAndLoader.swift; sourceTree = "<group>"; };
+		01C82E7729BA226D00C5B88E /* PostProcessorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostProcessorDelegate.swift; sourceTree = "<group>"; };
 		01D0ED6529A79974007AE2D6 /* APIDataProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIDataProcessor.swift; sourceTree = "<group>"; };
 		01D0ED6729A7B4F5007AE2D6 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		296D44003DE300F316CCD3DA /* Pods-MyRedditReader.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyRedditReader.release.xcconfig"; path = "Target Support Files/Pods-MyRedditReader/Pods-MyRedditReader.release.xcconfig"; sourceTree = "<group>"; };
@@ -201,6 +205,8 @@
 				01D0ED6529A79974007AE2D6 /* APIDataProcessor.swift */,
 				01D0ED6729A7B4F5007AE2D6 /* Post.swift */,
 				0183E70929A8FDC500238285 /* CodableData.swift */,
+				01C82E7529BA222C00C5B88E /* PostsSaverAndLoader.swift */,
+				01C82E7729BA226D00C5B88E /* PostProcessorDelegate.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -479,12 +485,14 @@
 			files = (
 				0169469B29AE43B7001A3A5C /* Double+Extensions.swift in Sources */,
 				01171D1D29A65A83001BBE2F /* PostViewController.swift in Sources */,
+				01C82E7629BA222C00C5B88E /* PostsSaverAndLoader.swift in Sources */,
 				0169469929AE439A001A3A5C /* String+Extensions.swift in Sources */,
 				01D0ED6629A79974007AE2D6 /* APIDataProcessor.swift in Sources */,
 				0183E70A29A8FDC500238285 /* CodableData.swift in Sources */,
 				01171D1929A65A83001BBE2F /* AppDelegate.swift in Sources */,
 				010DCF8129B14F6A00C9E0F4 /* PostListViewController.swift in Sources */,
 				010DCF8329B1502400C9E0F4 /* PostTableViewCell.swift in Sources */,
+				01C82E7829BA226D00C5B88E /* PostProcessorDelegate.swift in Sources */,
 				01171D1B29A65A83001BBE2F /* SceneDelegate.swift in Sources */,
 				0159F1CA29B1591400B4CABF /* PostDetailsViewController.swift in Sources */,
 				014BD7BB29B0FC9D00F99C50 /* PostView.swift in Sources */,
@@ -666,7 +674,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = VNU8KKW4GG;
+				DEVELOPMENT_TEAM = WBCS4ZZ7R3;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MyRedditReader/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -698,7 +706,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = VNU8KKW4GG;
+				DEVELOPMENT_TEAM = WBCS4ZZ7R3;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MyRedditReader/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

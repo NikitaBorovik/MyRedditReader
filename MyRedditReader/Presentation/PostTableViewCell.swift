@@ -13,7 +13,11 @@ final class PostTableViewCell: UITableViewCell{
     
     @IBOutlet private weak var postView: PostView!
     
+    private var post:Post?
+    weak var delegate:PostProcessorDelegate?
+    
     func config(with data: Post){
+        post = data
         postView.usernameLable.text = data.username
         postView.timeLable.text = data.timePassed
         postView.domainLable.text = data.domain
@@ -26,6 +30,23 @@ final class PostTableViewCell: UITableViewCell{
             postView.savedButton.setImage(UIImage(systemName: "bookmark"), for: .normal)
         }
         postView.image.sd_setImage(with: data.imageUrl,placeholderImage: UIImage(systemName: "face.smiling"))
+        postView.savedButton.addTarget(self, action: #selector(saveButtonHadler), for: .touchUpInside)
+        postView.shareButton.addTarget(self, action: #selector(shareButtonHandler), for: .touchUpInside)
+    }
+    
+    @objc
+    func saveButtonHadler(){
+        print("Here")
+        guard let post else {return}
+        delegate?.savePost(post: post)
+    }
+    
+    @objc
+    func shareButtonHandler(){
+        //Task{
+            guard let url = post?.url else {return}
+            delegate?.sharePost(url: url)
+       // }
     }
 }
 

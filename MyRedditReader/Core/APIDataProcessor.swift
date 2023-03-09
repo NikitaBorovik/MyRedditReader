@@ -15,6 +15,7 @@ class APIDataProcessor{
     public static var isLoading:Bool = false
     public static let subredditName = "cats"
     
+    
     enum ApiDataError:Error{
         case invalidURL
         case invalidData
@@ -45,7 +46,8 @@ class APIDataProcessor{
             isLoading = false
             NotificationCenter.default.post(Notification(name: APIDataProcessor.postsLoadedNotificationName))
         }catch{
-            print("Invalid data!")
+            print("Invalid data!But")
+            NotificationCenter.default.post(Notification(name: APIDataProcessor.postsLoadedNotificationName))
             return
         }
     }

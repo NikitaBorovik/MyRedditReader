@@ -8,16 +8,17 @@
 import Foundation
 
 
-struct Post{
-     var username: String
-     var numComments: Int
-     var title: String
-     var domain: String
-     var timePassed: String
-     var rating:Int
-     var imageUrl: URL?
-     var saved: Bool
-     var after: String
+struct Post: Codable{
+    let username: String
+    let numComments: Int
+    let title: String
+    let domain: String
+    let timePassed: String
+    let rating:Int
+    let imageUrl: URL?
+    var saved: Bool
+    let after: String
+    let url: URL?
     
     init(data:ApiPostData, dataToGetAfter: InnerPostData){
         self.username = data.username
@@ -27,9 +28,16 @@ struct Post{
         self.rating = data.ups + data.downs
         self.timePassed = data.created.makeTimeString
         self.imageUrl = data.preview?.images.first?.source.url.formattedURL
-        self.saved = Bool.random()
+        self.saved = false
         self.after = dataToGetAfter.after
+        self.url = URL(string: "https://www.reddit.com\(data.permalink)")
         
+    }
+}
+
+extension Post:Equatable{
+    static func ==(left:Post,right:Post) -> Bool{
+        left.url == right.url
     }
 }
 

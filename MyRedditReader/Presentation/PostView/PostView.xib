@@ -17,6 +17,7 @@
                 <outlet property="image" destination="ZZJ-LW-vHL" id="lV7-6y-JSx"/>
                 <outlet property="ratingLable" destination="pUA-mv-qKT" id="4pa-Sw-2Bp"/>
                 <outlet property="savedButton" destination="W6I-QL-Pog" id="qv4-3C-FYF"/>
+                <outlet property="shareButton" destination="u6Z-ew-cwQ" id="XYW-Gs-aFl"/>
                 <outlet property="timeLable" destination="SlC-5G-Dd8" id="MiQ-qB-0kq"/>
                 <outlet property="titleLable" destination="Xsf-s4-Qtp" id="Szu-AS-V3H"/>
                 <outlet property="usernameLable" destination="3Uh-n7-py0" id="M0K-Gz-5jY"/>

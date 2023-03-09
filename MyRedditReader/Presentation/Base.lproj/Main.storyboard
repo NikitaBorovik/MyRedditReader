@@ -78,6 +78,9 @@
                                 <buttonConfiguration key="configuration" style="plain">
                                     <imageReference key="image" image="bookmark.circle" catalog="system" symbolScale="large"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="ChangePostsDisplayMode:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yRn-bh-Mhe"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ggl-qi-4dP"/>
@@ -98,6 +101,7 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="subredditNameLabel" destination="8Jo-nA-YSV" id="1Av-LO-088"/>
+                        <outlet property="switchModesButton" destination="CQq-5C-gxb" id="VwE-1Y-UHQ"/>
                         <outlet property="tableView" destination="Tfi-SD-BsC" id="Txp-Na-ojG"/>
                         <segue destination="XPh-l4-WHI" kind="show" identifier="go_to_details" id="KPj-Fd-9ca"/>
                     </connections>

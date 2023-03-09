@@ -16,6 +16,7 @@ class PostView: UIView{
     
     @IBOutlet weak var timeLable: UILabel!
     
+    @IBOutlet weak var shareButton: UIButton!
     
     @IBOutlet weak var domainLable: UILabel!
     

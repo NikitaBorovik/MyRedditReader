@@ -28,6 +28,7 @@ struct ApiPostData: Codable{
     let ups:Int
     let downs:Int
     let preview: Preview?
+    let permalink: String
     
     enum CodingKeys: String, CodingKey{
         case username = "author"
@@ -38,6 +39,7 @@ struct ApiPostData: Codable{
         case ups
         case downs
         case preview
+        case permalink
     }
 }
 struct Preview: Codable {
