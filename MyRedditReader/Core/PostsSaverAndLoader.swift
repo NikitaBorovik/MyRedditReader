@@ -18,7 +18,7 @@ class PostsSaverAndLoader{
     
     func savePosts() {
         let jsEncoder = JSONEncoder()
-        if let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("savedPosts.json") {
+        if let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("1.json") {
             print(path)
             jsEncoder.outputFormatting = .prettyPrinted
             if let data = try? jsEncoder.encode(postsInSave) {
@@ -30,14 +30,19 @@ class PostsSaverAndLoader{
                 }
             }
         }
+        for post in postsInSave{
+            print("Post \(post)")
+            print()
+        }
         print("Success!")
     }
     func loadPosts(){
-        if let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("savedPosts.json") {
+        if let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("1.json") {
             do{
                 let data = try Data(contentsOf: path)
                 self.postsInSave = try JSONDecoder().decode([Post].self, from: data)
             }catch{
+                print("help")
                 print(error)
             }
         }

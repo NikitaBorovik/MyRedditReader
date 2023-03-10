@@ -66,13 +66,13 @@
                                 </connections>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Jo-nA-YSV">
-                                <rect key="frame" x="182" y="7.9999999999999982" width="50" height="26.333333333333329"/>
+                                <rect key="frame" x="182" y="8" width="50" height="34.333333333333336"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CQq-5C-gxb">
-                                <rect key="frame" x="348.33333333333331" y="8" width="49.666666666666686" height="35"/>
+                                <rect key="frame" x="348.33333333333331" y="8" width="49.666666666666686" height="34.333333333333336"/>
                                 <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain">
@@ -82,18 +82,30 @@
                                     <action selector="ChangePostsDisplayMode:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yRn-bh-Mhe"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WTE-Nk-c1l">
+                                <rect key="frame" x="0.0" y="42.333333333333336" width="414" height="0.0"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" id="RqI-Sy-99Y"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="search"/>
+                            </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ggl-qi-4dP"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="WTE-Nk-c1l" firstAttribute="leading" secondItem="ggl-qi-4dP" secondAttribute="leading" id="0hm-cS-aOO"/>
                             <constraint firstItem="8Jo-nA-YSV" firstAttribute="centerX" secondItem="ggl-qi-4dP" secondAttribute="centerX" id="0rh-e9-E0T"/>
                             <constraint firstItem="CQq-5C-gxb" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="8Jo-nA-YSV" secondAttribute="trailing" constant="8" id="2EJ-ep-LoI"/>
+                            <constraint firstItem="ggl-qi-4dP" firstAttribute="trailing" secondItem="WTE-Nk-c1l" secondAttribute="trailing" id="3sJ-ku-3pH"/>
+                            <constraint firstItem="WTE-Nk-c1l" firstAttribute="top" secondItem="CQq-5C-gxb" secondAttribute="bottom" id="GyQ-mj-a12"/>
                             <constraint firstItem="ggl-qi-4dP" firstAttribute="trailing" secondItem="Tfi-SD-BsC" secondAttribute="trailing" id="NRV-EJ-rSD"/>
+                            <constraint firstItem="Tfi-SD-BsC" firstAttribute="top" secondItem="WTE-Nk-c1l" secondAttribute="bottom" id="aaq-Yx-gZ0"/>
                             <constraint firstItem="ggl-qi-4dP" firstAttribute="trailing" secondItem="CQq-5C-gxb" secondAttribute="trailing" constant="16" id="dsV-2t-WNx"/>
                             <constraint firstItem="ggl-qi-4dP" firstAttribute="bottom" secondItem="Tfi-SD-BsC" secondAttribute="bottom" id="kLp-Vr-R6S"/>
                             <constraint firstItem="CQq-5C-gxb" firstAttribute="top" secondItem="ggl-qi-4dP" secondAttribute="top" constant="8" id="n8a-I6-HUM"/>
                             <constraint firstItem="8Jo-nA-YSV" firstAttribute="top" secondItem="ggl-qi-4dP" secondAttribute="top" constant="8" id="njb-vM-10z"/>
-                            <constraint firstItem="Tfi-SD-BsC" firstAttribute="top" secondItem="8Jo-nA-YSV" secondAttribute="bottom" constant="8" id="rMC-bz-4MH"/>
+                            <constraint firstItem="WTE-Nk-c1l" firstAttribute="top" secondItem="8Jo-nA-YSV" secondAttribute="bottom" id="vhz-oZ-8C2"/>
                             <constraint firstItem="Tfi-SD-BsC" firstAttribute="leading" secondItem="ggl-qi-4dP" secondAttribute="leading" id="zDR-N1-BQS"/>
                         </constraints>
                     </view>
@@ -103,6 +115,8 @@
                         <outlet property="subredditNameLabel" destination="8Jo-nA-YSV" id="1Av-LO-088"/>
                         <outlet property="switchModesButton" destination="CQq-5C-gxb" id="VwE-1Y-UHQ"/>
                         <outlet property="tableView" destination="Tfi-SD-BsC" id="Txp-Na-ojG"/>
+                        <outlet property="textField" destination="WTE-Nk-c1l" id="oiB-Lf-5WM"/>
+                        <outlet property="textFieldHeigthConstraint" destination="RqI-Sy-99Y" id="3Tp-8i-OWL"/>
                         <segue destination="XPh-l4-WHI" kind="show" identifier="go_to_details" id="KPj-Fd-9ca"/>
                     </connections>
                 </viewController>

@@ -35,7 +35,10 @@ class APIDataProcessor{
             return
         }
         do {
-            let (dataReceived, _) = try await URLSession.shared.data(from: url)
+            let config = URLSessionConfiguration.default
+            config.urlCache = URLCache(memoryCapacity: 0, diskCapacity: 0, diskPath: nil)
+            let session = URLSession(configuration: config)
+            let (dataReceived, _) = try await session.data(from: url)
             let decodedData = try JSONDecoder().decode(OuterPostData.self, from: dataReceived)
             
             for child in decodedData.data.children{
@@ -46,6 +49,7 @@ class APIDataProcessor{
             isLoading = false
             NotificationCenter.default.post(Notification(name: APIDataProcessor.postsLoadedNotificationName))
         }catch{
+            isLoading = false
             print("Invalid data!But")
             NotificationCenter.default.post(Notification(name: APIDataProcessor.postsLoadedNotificationName))
             return

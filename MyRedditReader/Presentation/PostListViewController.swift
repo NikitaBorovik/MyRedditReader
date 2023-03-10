@@ -16,6 +16,11 @@ class PostListViewController: UIViewController{
     
     @IBOutlet private weak var switchModesButton: UIButton!
     
+    @IBOutlet weak var textField: UITextField!
+    
+    
+    @IBOutlet weak var textFieldHeigthConstraint: NSLayoutConstraint!
+    
     private var postsSaverAndLoader = PostsSaverAndLoader.instance
     
     private var onlySavedPosts: Bool = false
@@ -30,6 +35,7 @@ class PostListViewController: UIViewController{
         static let cellReuseId = "custom_post_cell"
         static let goToDetailsSeagueId = "go_to_details"
         static let postsCountInOneTime = 20
+        static let textFieldHeigth:CGFloat = 35.0
     }
     
     private var allPostsList: [Post] = []
@@ -38,6 +44,7 @@ class PostListViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        textField.delegate = self
         DispatchQueue.main.async {
             self.subredditNameLabel.text = "/r/\(APIDataProcessor.subredditName)"
         }
@@ -49,9 +56,22 @@ class PostListViewController: UIViewController{
         if onlySavedPosts{
             postsToShow = allPostsList.filter({$0.saved})
             switchModesButton.setImage(UIImage(systemName: "bookmark.circle.fill"), for: .normal)
+            UIView.animate(withDuration: 0.3){
+                self.textFieldHeigthConstraint.constant = Const.textFieldHeigth
+                self.view.layoutIfNeeded()
+            }
+            
         }else{
+            textField.text = ""
+            self.textField.resignFirstResponder()
             postsToShow = allPostsList
+            tableView.reloadData()
             switchModesButton.setImage(UIImage(systemName: "bookmark.circle"), for: .normal)
+            UIView.animate(withDuration: 0.3){
+                self.textFieldHeigthConstraint.constant = 0
+                
+                self.view.layoutIfNeeded()
+            }
         }
         tableView.reloadData()
     }
@@ -60,11 +80,11 @@ class PostListViewController: UIViewController{
     @objc
     func recalculateData(){
         if !onlySavedPosts{
-            if APIDataProcessor.posts.isEmpty{
-                self.postsToShow = postsSaverAndLoader.postsInSave
-            }
             DispatchQueue.main.async {
                 [self] in
+                if APIDataProcessor.posts.isEmpty && self.allPostsList.isEmpty{
+                self.allPostsList = postsSaverAndLoader.postsInSave
+            }else{
                 self.allPostsList += APIDataProcessor.posts
                 for p1 in postsSaverAndLoader.postsInSave{
                     for index in 0..<allPostsList.count{
@@ -73,9 +93,9 @@ class PostListViewController: UIViewController{
                         }
                     }
                 }
-                self.postsToShow = allPostsList
-                self.tableView.reloadData()
-                
+            }
+            self.postsToShow = allPostsList
+            self.tableView.reloadData()
             }
         }
         
@@ -162,5 +182,24 @@ extension PostListViewController: PostProcessorDelegate{
         present(activityVC,animated: true)
     }
     
+    
+}
+
+extension PostListViewController: UITextFieldDelegate{
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        guard let text = textField.text else {return}
+        if !text.isEmpty{
+            postsToShow = allPostsList.filter{$0.saved && $0.title.lowercased().hasPrefix(text.lowercased().trimmingCharacters(in: .whitespaces))}
+        }else{
+            postsToShow = allPostsList.filter{$0.saved}
+        }
+        tableView.reloadData()
+        
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
     
 }
