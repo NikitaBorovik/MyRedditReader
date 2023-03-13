@@ -34,7 +34,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func applicationWillTerminate(_ application: UIApplication) {
-        PostsSaverAndLoader.instance.savePosts()
+        PostsSerializer.instance.savePosts()
     }
 
 

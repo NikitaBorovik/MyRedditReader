@@ -11,7 +11,6 @@
 		010DCF8329B1502400C9E0F4 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010DCF8229B1502400C9E0F4 /* PostTableViewCell.swift */; };
 		01171D1929A65A83001BBE2F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01171D1829A65A83001BBE2F /* AppDelegate.swift */; };
 		01171D1B29A65A83001BBE2F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01171D1A29A65A83001BBE2F /* SceneDelegate.swift */; };
-		01171D1D29A65A83001BBE2F /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01171D1C29A65A83001BBE2F /* PostViewController.swift */; };
 		01171D2029A65A83001BBE2F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01171D1E29A65A83001BBE2F /* Main.storyboard */; };
 		01171D2229A65A85001BBE2F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 01171D2129A65A85001BBE2F /* Assets.xcassets */; };
 		01171D2529A65A85001BBE2F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01171D2329A65A85001BBE2F /* LaunchScreen.storyboard */; };
@@ -24,7 +23,7 @@
 		0169469929AE439A001A3A5C /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0169469829AE439A001A3A5C /* String+Extensions.swift */; };
 		0169469B29AE43B7001A3A5C /* Double+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0169469A29AE43B7001A3A5C /* Double+Extensions.swift */; };
 		0183E70A29A8FDC500238285 /* CodableData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0183E70929A8FDC500238285 /* CodableData.swift */; };
-		01C82E7629BA222C00C5B88E /* PostsSaverAndLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C82E7529BA222C00C5B88E /* PostsSaverAndLoader.swift */; };
+		01C82E7629BA222C00C5B88E /* PostsSerializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C82E7529BA222C00C5B88E /* PostsSerializer.swift */; };
 		01C82E7829BA226D00C5B88E /* PostProcessorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C82E7729BA226D00C5B88E /* PostProcessorDelegate.swift */; };
 		01D0ED6629A79974007AE2D6 /* APIDataProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D0ED6529A79974007AE2D6 /* APIDataProcessor.swift */; };
 		01D0ED6829A7B4F5007AE2D6 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D0ED6729A7B4F5007AE2D6 /* Post.swift */; };
@@ -56,7 +55,6 @@
 		01171D1529A65A83001BBE2F /* MyRedditReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyRedditReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		01171D1829A65A83001BBE2F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		01171D1A29A65A83001BBE2F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		01171D1C29A65A83001BBE2F /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		01171D1F29A65A83001BBE2F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		01171D2129A65A85001BBE2F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		01171D2429A65A85001BBE2F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -72,7 +70,7 @@
 		0169469829AE439A001A3A5C /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		0169469A29AE43B7001A3A5C /* Double+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extensions.swift"; sourceTree = "<group>"; };
 		0183E70929A8FDC500238285 /* CodableData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableData.swift; sourceTree = "<group>"; };
-		01C82E7529BA222C00C5B88E /* PostsSaverAndLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsSaverAndLoader.swift; sourceTree = "<group>"; };
+		01C82E7529BA222C00C5B88E /* PostsSerializer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsSerializer.swift; sourceTree = "<group>"; };
 		01C82E7729BA226D00C5B88E /* PostProcessorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostProcessorDelegate.swift; sourceTree = "<group>"; };
 		01D0ED6529A79974007AE2D6 /* APIDataProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIDataProcessor.swift; sourceTree = "<group>"; };
 		01D0ED6729A7B4F5007AE2D6 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
@@ -188,7 +186,6 @@
 			isa = PBXGroup;
 			children = (
 				014BD7B729B0FBFA00F99C50 /* PostView */,
-				01171D1C29A65A83001BBE2F /* PostViewController.swift */,
 				01171D1E29A65A83001BBE2F /* Main.storyboard */,
 				01171D2329A65A85001BBE2F /* LaunchScreen.storyboard */,
 				010DCF8029B14F6A00C9E0F4 /* PostListViewController.swift */,
@@ -205,7 +202,7 @@
 				01D0ED6529A79974007AE2D6 /* APIDataProcessor.swift */,
 				01D0ED6729A7B4F5007AE2D6 /* Post.swift */,
 				0183E70929A8FDC500238285 /* CodableData.swift */,
-				01C82E7529BA222C00C5B88E /* PostsSaverAndLoader.swift */,
+				01C82E7529BA222C00C5B88E /* PostsSerializer.swift */,
 				01C82E7729BA226D00C5B88E /* PostProcessorDelegate.swift */,
 			);
 			path = Core;
@@ -484,8 +481,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0169469B29AE43B7001A3A5C /* Double+Extensions.swift in Sources */,
-				01171D1D29A65A83001BBE2F /* PostViewController.swift in Sources */,
-				01C82E7629BA222C00C5B88E /* PostsSaverAndLoader.swift in Sources */,
+				01C82E7629BA222C00C5B88E /* PostsSerializer.swift in Sources */,
 				0169469929AE439A001A3A5C /* String+Extensions.swift in Sources */,
 				01D0ED6629A79974007AE2D6 /* APIDataProcessor.swift in Sources */,
 				0183E70A29A8FDC500238285 /* CodableData.swift in Sources */,

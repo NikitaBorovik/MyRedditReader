@@ -7,10 +7,10 @@
 
 import Foundation
 
-class PostsSaverAndLoader{
+class PostsSerializer{
     
     var postsInSave:[Post] = []
-    public static var instance = PostsSaverAndLoader()
+    public static var instance = PostsSerializer()
     
     public init(){
         loadPosts()
@@ -18,37 +18,27 @@ class PostsSaverAndLoader{
     
     func savePosts() {
         let jsEncoder = JSONEncoder()
-        if let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("1.json") {
+        if let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("mySavedPosts.json") {
             print(path)
             jsEncoder.outputFormatting = .prettyPrinted
             if let data = try? jsEncoder.encode(postsInSave) {
                 do {
-                    print("asdasda")
                     try data.write(to: path, options: .atomic)
                 } catch {
                     print("Error writing data to file: \(error)")
                 }
             }
         }
-        for post in postsInSave{
-            print("Post \(post)")
-            print()
-        }
-        print("Success!")
+        
     }
     func loadPosts(){
-        if let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("1.json") {
+        if let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("mySavedPosts.json") {
             do{
                 let data = try Data(contentsOf: path)
                 self.postsInSave = try JSONDecoder().decode([Post].self, from: data)
             }catch{
-                print("help")
-                print(error)
+                print("Cannot load from file")
             }
-        }
-        for post in postsInSave{
-            print("Post \(post)")
-            print()
         }
     }
 }

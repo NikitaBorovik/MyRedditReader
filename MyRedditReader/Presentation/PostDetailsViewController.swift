@@ -47,7 +47,6 @@ final class PostDetailsViewController: UIViewController{
     
     @objc
     func saveButtonHadler(){
-        print("Here")
         guard let post else {return}
         post.saved ? postView.savedButton.setImage(UIImage(systemName: "bookmark"), for: .normal)
         :postView.savedButton.setImage(UIImage(systemName: "bookmark.fill"), for: .normal)

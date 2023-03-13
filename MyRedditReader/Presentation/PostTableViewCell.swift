@@ -36,17 +36,14 @@ final class PostTableViewCell: UITableViewCell{
     
     @objc
     func saveButtonHadler(){
-        print("Here")
         guard let post else {return}
         delegate?.savePost(post: post)
     }
     
     @objc
     func shareButtonHandler(){
-        //Task{
             guard let url = post?.url else {return}
             delegate?.sharePost(url: url)
-       // }
     }
 }
 

@@ -21,7 +21,7 @@ class PostListViewController: UIViewController{
     
     @IBOutlet weak var textFieldHeigthConstraint: NSLayoutConstraint!
     
-    private var postsSaverAndLoader = PostsSaverAndLoader.instance
+    private var postsSaverAndLoader = PostsSerializer.instance
     
     private var onlySavedPosts: Bool = false
     
@@ -54,7 +54,7 @@ class PostListViewController: UIViewController{
     
     func switchPostsToShow(){
         if onlySavedPosts{
-            postsToShow = allPostsList.filter({$0.saved})
+            postsToShow = postsSaverAndLoader.postsInSave//allPostsList.filter({$0.saved})
             switchModesButton.setImage(UIImage(systemName: "bookmark.circle.fill"), for: .normal)
             UIView.animate(withDuration: 0.3){
                 self.textFieldHeigthConstraint.constant = Const.textFieldHeigth
@@ -116,7 +116,6 @@ class PostListViewController: UIViewController{
 
 extension PostListViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //Const.postsCountInOneTime
         self.postsToShow.count
     }
     
@@ -158,12 +157,10 @@ extension PostListViewController: PostProcessorDelegate{
         if var postToSave = postsToShow.first(where: {$0 == post}){
             if postToSave.saved{
                 postsSaverAndLoader.postsInSave = postsSaverAndLoader.postsInSave.filter {$0 != postToSave}
-                print("Here1")
                 tableView.reloadData()
             }else{
                 postToSave.saved = true
                 postsSaverAndLoader.postsInSave.append(postToSave)
-                print("Here2")
                 tableView.reloadData()
             }
             if let index = postsToShow.firstIndex(where: {$0 == postToSave}){
@@ -186,19 +183,24 @@ extension PostListViewController: PostProcessorDelegate{
 }
 
 extension PostListViewController: UITextFieldDelegate{
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        guard let text = textField.text else {return}
-        if !text.isEmpty{
-            postsToShow = allPostsList.filter{$0.saved && $0.title.lowercased().hasPrefix(text.lowercased().trimmingCharacters(in: .whitespaces))}
-        }else{
-            postsToShow = allPostsList.filter{$0.saved}
-        }
-        tableView.reloadData()
-        
-    }
+
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
+        return true
+    }
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange,
+                   replacementString string: String)-> Bool{
+        let currentText = textField.text ?? ""
+        if let range = Range(range, in: currentText) {
+        let newText = currentText.replacingCharacters(in: range, with: string)
+        if !newText.isEmpty {
+            postsToShow = allPostsList.filter{$0.saved && $0.title.lowercased().hasPrefix(newText.lowercased().trimmingCharacters(in: .whitespaces))}
+        } else {
+            postsToShow = allPostsList.filter{$0.saved}
+        }
+            tableView.reloadData()
+        }
         return true
     }
     
