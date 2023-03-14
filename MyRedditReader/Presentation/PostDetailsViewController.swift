@@ -2,7 +2,7 @@
 //  PostDetailsViewController.swift
 //  MyRedditReader
 //
-//  Created by Никита Боровик on 03.03.2023.
+//  Created by Нікіта Боровік on 03.03.2023.
 //
 
 import Foundation
@@ -52,7 +52,6 @@ final class PostDetailsViewController: UIViewController{
         :postView.savedButton.setImage(UIImage(systemName: "bookmark.fill"), for: .normal)
         delegate?.savePost(post: post)
         self.post?.saved.toggle()
-        print(post.saved)
     }
     
     @objc

@@ -2,7 +2,7 @@
 //  PostTableCellDelegate.swift
 //  MyRedditReader
 //
-//  Created by Никита Боровик on 09.03.2023.
+//  Created by Нікіта Боровік on 09.03.2023.
 //
 
 import Foundation

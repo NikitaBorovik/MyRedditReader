@@ -2,7 +2,7 @@
 //  CustomPostCell.swift
 //  MyRedditReader
 //
-//  Created by Никита Боровик on 02.03.2023.
+//  Created by Нікіта Боровік on 02.03.2023.
 //
 
 import Foundation

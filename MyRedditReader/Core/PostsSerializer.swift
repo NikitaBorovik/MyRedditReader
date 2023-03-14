@@ -2,7 +2,7 @@
 //  PostsSaverAndLoader.swift
 //  MyRedditReader
 //
-//  Created by Никита Боровик on 09.03.2023.
+//  Created by Нікіта Боровік on 09.03.2023.
 //
 
 import Foundation
@@ -19,13 +19,12 @@ class PostsSerializer{
     func savePosts() {
         let jsEncoder = JSONEncoder()
         if let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("mySavedPosts.json") {
-            print(path)
             jsEncoder.outputFormatting = .prettyPrinted
             if let data = try? jsEncoder.encode(postsInSave) {
                 do {
                     try data.write(to: path, options: .atomic)
                 } catch {
-                    print("Error writing data to file: \(error)")
+                    print("Cannot write to file")
                 }
             }
         }

@@ -50,7 +50,6 @@ class APIDataProcessor{
             NotificationCenter.default.post(Notification(name: APIDataProcessor.postsLoadedNotificationName))
         }catch{
             isLoading = false
-            print("Invalid data!But")
             NotificationCenter.default.post(Notification(name: APIDataProcessor.postsLoadedNotificationName))
             return
         }

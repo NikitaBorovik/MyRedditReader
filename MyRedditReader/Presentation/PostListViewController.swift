@@ -2,7 +2,7 @@
 //  PostListViewController.swift
 //  MyRedditReader
 //
-//  Created by Никита Боровик on 02.03.2023.
+//  Created by Нікіта Боровік on 02.03.2023.
 //
 
 import UIKit
@@ -195,9 +195,9 @@ extension PostListViewController: UITextFieldDelegate{
         if let range = Range(range, in: currentText) {
         let newText = currentText.replacingCharacters(in: range, with: string)
         if !newText.isEmpty {
-            postsToShow = allPostsList.filter{$0.saved && $0.title.lowercased().hasPrefix(newText.lowercased().trimmingCharacters(in: .whitespaces))}
+            postsToShow = postsSaverAndLoader.postsInSave.filter{ $0.title.lowercased().hasPrefix(newText.lowercased().trimmingCharacters(in: .whitespaces))}
         } else {
-            postsToShow = allPostsList.filter{$0.saved}
+            postsToShow = postsSaverAndLoader.postsInSave
         }
             tableView.reloadData()
         }
