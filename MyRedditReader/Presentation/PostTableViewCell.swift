@@ -15,6 +15,7 @@ final class PostTableViewCell: UITableViewCell{
     
     private var post:Post?
     weak var delegate:PostProcessorDelegate?
+    private var bookmarkView: UIView = UIView()
     
     func config(with data: Post){
         post = data
@@ -32,16 +33,67 @@ final class PostTableViewCell: UITableViewCell{
         postView.image.sd_setImage(with: data.imageUrl,placeholderImage: UIImage(systemName: "face.smiling"))
         postView.savedButton.addTarget(self, action: #selector(saveButtonHadler), for: .touchUpInside)
         postView.shareButton.addTarget(self, action: #selector(shareButtonHandler), for: .touchUpInside)
+        addImageDoubleTapRecognizer()
+    }
+    
+    
+//    private func addSubviewForBookmark(to imageView: UIImageView){
+//        imageView.subviews.forEach{$0.removeFromSuperview()}
+//        bookmarkView.backgroundColor = .clear
+//        bookmarkView.frame = CGRect(
+//            origin: CGPoint(
+//                x: imageView.bounds.midX - Const.bookmarkViewWidth / 2.0,
+//                y: imageView.bounds.midY - Const.bookmarkViewHeigth / 2.0
+//                ),
+//            size: CGSize(width: Const.bookmarkViewWidth,
+//                         height: Const.bookmarkViewHeigth)
+//        )
+//        Drawer.drawBookmark(on: bookmarkView)
+//        imageView.addSubview(bookmarkView)
+//
+//    }
+    
+    private func addImageDoubleTapRecognizer(){
+        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(animatedSave))
+        gestureRecognizer.delaysTouchesBegan = true
+        gestureRecognizer.numberOfTapsRequired = 2
+        postView.image.addGestureRecognizer(gestureRecognizer)
     }
     
     @objc
-    func saveButtonHadler(){
+    private func animatedSave(){
+        guard let post else {return}
+        postView.addSubviewToImage(view: bookmarkView)
+        bookmarkView.isHidden = false
+        UIView.animate(withDuration: Const.saveAnimationDuration,
+                       delay: 0,
+                       usingSpringWithDamping: Const.saveAnimationSpringDamping,
+                       initialSpringVelocity: Const.initialSaveAnimationVelocity
+        ) {
+        self.bookmarkView.transform = CGAffineTransform(
+            scaleX: Const.finalBookmarkScale,
+            y: Const.finalBookmarkScale
+        )
+        } completion: { _ in
+        if (!post.saved){
+            self.saveButtonHadler()
+        }
+        self.bookmarkView.isHidden = true
+        self.bookmarkView.transform = CGAffineTransform(
+            scaleX: Const.initialBookmarkScale,
+            y: Const.initialBookmarkScale)
+    }
+}
+    
+    
+    @objc
+    private func saveButtonHadler(){
         guard let post else {return}
         delegate?.savePost(post: post)
     }
     
     @objc
-    func shareButtonHandler(){
+    private func shareButtonHandler(){
             guard let url = post?.url else {return}
             delegate?.sharePost(url: url)
     }

@@ -30,14 +30,6 @@ class PostListViewController: UIViewController{
         switchPostsToShow()
     }
     
-    
-    struct Const {
-        static let cellReuseId = "custom_post_cell"
-        static let goToDetailsSeagueId = "go_to_details"
-        static let postsCountInOneTime = 20
-        static let textFieldHeigth:CGFloat = 35.0
-    }
-    
     private var allPostsList: [Post] = []
     private var postsToShow: [Post] = []
     private var lastSelectedPost: Post?

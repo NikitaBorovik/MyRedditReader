@@ -46,7 +46,26 @@ class PostView: UIView{
             Bundle.main.loadNibNamed(kCONTENT_XIB_NAME, owner: self, options: nil)
             contentView.fixInView(self)
         }
+    
+    func addSubviewToImage(view: UIView){
+        self.image.subviews.forEach{$0.removeFromSuperview()}
+        view.backgroundColor = .clear
+        view.frame = CGRect(
+            origin: CGPoint(
+                x: image.bounds.midX - Const.bookmarkViewWidth / 2.0,
+                y: image.bounds.midY - Const.bookmarkViewHeigth / 2.0
+                ),
+            size: CGSize(width: Const.bookmarkViewWidth,
+                     height: Const.bookmarkViewHeigth)
+        )
+        Drawer.drawBookmark(on: view)
+        image.addSubview(view)
+        view.isHidden = true
+    
     }
+    }
+
+    
 
     extension UIView
     {

@@ -23,6 +23,8 @@
 		0169469929AE439A001A3A5C /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0169469829AE439A001A3A5C /* String+Extensions.swift */; };
 		0169469B29AE43B7001A3A5C /* Double+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0169469A29AE43B7001A3A5C /* Double+Extensions.swift */; };
 		0183E70A29A8FDC500238285 /* CodableData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0183E70929A8FDC500238285 /* CodableData.swift */; };
+		01A3E57E29C3636E00737EB8 /* Drawer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A3E57D29C3636E00737EB8 /* Drawer.swift */; };
+		01A3E58929C379BE00737EB8 /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A3E58829C379BE00737EB8 /* Const.swift */; };
 		01C82E7629BA222C00C5B88E /* PostsSerializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C82E7529BA222C00C5B88E /* PostsSerializer.swift */; };
 		01C82E7829BA226D00C5B88E /* PostProcessorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C82E7729BA226D00C5B88E /* PostProcessorDelegate.swift */; };
 		01D0ED6629A79974007AE2D6 /* APIDataProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D0ED6529A79974007AE2D6 /* APIDataProcessor.swift */; };
@@ -70,6 +72,8 @@
 		0169469829AE439A001A3A5C /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		0169469A29AE43B7001A3A5C /* Double+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extensions.swift"; sourceTree = "<group>"; };
 		0183E70929A8FDC500238285 /* CodableData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableData.swift; sourceTree = "<group>"; };
+		01A3E57D29C3636E00737EB8 /* Drawer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drawer.swift; sourceTree = "<group>"; };
+		01A3E58829C379BE00737EB8 /* Const.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
 		01C82E7529BA222C00C5B88E /* PostsSerializer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsSerializer.swift; sourceTree = "<group>"; };
 		01C82E7729BA226D00C5B88E /* PostProcessorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostProcessorDelegate.swift; sourceTree = "<group>"; };
 		01D0ED6529A79974007AE2D6 /* APIDataProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIDataProcessor.swift; sourceTree = "<group>"; };
@@ -204,6 +208,8 @@
 				0183E70929A8FDC500238285 /* CodableData.swift */,
 				01C82E7529BA222C00C5B88E /* PostsSerializer.swift */,
 				01C82E7729BA226D00C5B88E /* PostProcessorDelegate.swift */,
+				01A3E57D29C3636E00737EB8 /* Drawer.swift */,
+				01A3E58829C379BE00737EB8 /* Const.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -486,6 +492,7 @@
 				01D0ED6629A79974007AE2D6 /* APIDataProcessor.swift in Sources */,
 				0183E70A29A8FDC500238285 /* CodableData.swift in Sources */,
 				01171D1929A65A83001BBE2F /* AppDelegate.swift in Sources */,
+				01A3E57E29C3636E00737EB8 /* Drawer.swift in Sources */,
 				010DCF8129B14F6A00C9E0F4 /* PostListViewController.swift in Sources */,
 				010DCF8329B1502400C9E0F4 /* PostTableViewCell.swift in Sources */,
 				01C82E7829BA226D00C5B88E /* PostProcessorDelegate.swift in Sources */,
@@ -493,6 +500,7 @@
 				0159F1CA29B1591400B4CABF /* PostDetailsViewController.swift in Sources */,
 				014BD7BB29B0FC9D00F99C50 /* PostView.swift in Sources */,
 				01D0ED6829A7B4F5007AE2D6 /* Post.swift in Sources */,
+				01A3E58929C379BE00737EB8 /* Const.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
